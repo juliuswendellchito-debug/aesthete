@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f9f9f9;
+    color: #1a1a1a;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Design-system label: Inter 12px, 0.1em tracking, #747878 */
+  .label-caps {
+    @apply text-[12px] font-semibold tracking-[0.1em] uppercase text-[#747878];
+  }
+
+  /* Primary button: black fill, 0px radius */
+  .btn-primary {
+    @apply bg-[#1a1a1a] text-white px-8 py-3 text-[14px] font-medium tracking-[0.05em] uppercase
+           transition-colors duration-200 hover:bg-[#d4c5b9] hover:text-[#1a1a1a];
+  }
+
+  /* Ghost/secondary button */
+  .btn-ghost {
+    @apply border border-[#1a1a1a] text-[#1a1a1a] px-8 py-3 text-[14px] font-medium tracking-[0.05em] uppercase
+           transition-colors duration-200 hover:bg-[#1a1a1a] hover:text-white;
+  }
+
+  /* Ghost white (on dark backgrounds) */
+  .btn-ghost-white {
+    @apply border border-white text-white px-8 py-3 text-[14px] font-medium tracking-[0.05em] uppercase
+           transition-colors duration-200 hover:bg-white hover:text-[#1a1a1a];
+  }
+
+  /* 120px section gap top+bottom */
+  .section-gap {
+    @apply py-[120px];
+  }
+
+  /* Max-width container with 64px desktop margins, 20px mobile */
+  .container-brand {
+    @apply max-w-[1440px] mx-auto px-5 md:px-16;
+  }
+}
+
+@layer utilities {
+  .font-playfair {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+  .font-inter {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
