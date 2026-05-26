@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { MOCK_PRODUCTS } from '@/lib/mock-data'
 import { ProductCard } from '@/components/store/ProductCard'
@@ -14,7 +15,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 const FILTERS = ['All', 'Outerwear', 'Dresses', 'Knitwear', 'Bespoke']
 
-export default function CollectionsPage() {
+function CollectionsContent() {
   const params = useSearchParams()
   const category = params.get('category') ?? ''
   const filter = params.get('filter') ?? ''
@@ -77,5 +78,13 @@ export default function CollectionsPage() {
         <p className="text-[14px] text-[#747878] mt-8">No pieces found in this category.</p>
       )}
     </div>
+  )
+}
+
+export default function CollectionsPage() {
+  return (
+    <Suspense>
+      <CollectionsContent />
+    </Suspense>
   )
 }
